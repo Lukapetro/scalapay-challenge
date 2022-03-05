@@ -1,13 +1,20 @@
+import Image from 'next/image'
 import { NFT } from '../../pages'
 
 export default function Card(nft: NFT) {
   return (
-    <div className="mt-6 w-96 rounded-xl border p-6 text-left transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:text-blue-600">
-      <img src={nft.image} className="... h-48 w-96 object-cover"></img>
-      <h3 className="text-2xl font-bold">{nft.title}</h3>
-      <p className="mt-4 text-xl">
-        Find in-depth information about Next.js features and API.
-      </p>
+    <div className="mt-6 rounded-xl border text-left shadow transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-lg">
+      <Image
+        alt="Vercel logo"
+        src={nft.image}
+        width={225}
+        height={225}
+        className="rounded-t-xl"
+      />
+      <div className="p-6">
+        <h3 className="text-2xl font-bold">{nft.title}</h3>
+        <p className="mt-4 text-xl">{nft.price} €</p>
+      </div>
     </div>
   )
 }

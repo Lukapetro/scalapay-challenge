@@ -3,13 +3,16 @@ import Head from 'next/head'
 import Emoji from '../components/common/Emoji'
 import Footer from '../components/common/Footer'
 import Card from '../components/home/Card'
-import Punk1Img from '../assets/images/punk1.png'
+import Punk1Img from '../public/images/punk1.png'
+import Punk2Img from '../public/images/punk2.png'
+import Punk3Img from '../public/images/punk3.png'
+import Punk4Img from '../public/images/punk4.png'
 
 export interface NFT {
   id: number
   title: string
   price: number
-  image: string
+  image: StaticImageData
 }
 
 const NFTs: NFT[] = [
@@ -17,7 +20,25 @@ const NFTs: NFT[] = [
     id: 0,
     title: 'CryptoPunk #1',
     price: 10000,
-    image: '../assets/images/punk1.png',
+    image: Punk1Img,
+  },
+  {
+    id: 1,
+    title: 'CryptoPunk #2',
+    price: 2000,
+    image: Punk2Img,
+  },
+  {
+    id: 2,
+    title: 'CryptoPunk #1',
+    price: 300,
+    image: Punk3Img,
+  },
+  {
+    id: 3,
+    title: 'CryptoPunk #4',
+    price: 4,
+    image: Punk4Img,
   },
 ]
 
@@ -29,7 +50,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+      <main className="mt-6 flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
           <a
@@ -44,7 +65,7 @@ const Home: NextPage = () => {
           <Emoji symbol="🦄" label="unicorn" />
         </h1>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+        <div className="mt-6 flex  flex-wrap items-center justify-around space-x-2 sm:w-full">
           {NFTs.map((nft) => (
             <Card {...nft} key={nft.id} />
           ))}
