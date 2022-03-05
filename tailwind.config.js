@@ -4,7 +4,11 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'scalapay': '#f6d2d5',
+      },
+    },
   },
   plugins: [],
 }
