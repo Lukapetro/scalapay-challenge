@@ -1,6 +1,43 @@
 import Emoji from '../components/common/Emoji'
 import Card from '../components/home/Card'
-import { NFTs } from '../utils/Data'
+import Punk1Img from '../public/images/punk1.png'
+import Punk2Img from '../public/images/punk2.png'
+import Punk3Img from '../public/images/punk3.png'
+import Punk4Img from '../public/images/punk4.png'
+
+export interface NFT {
+  id: number
+  title: string
+  price: number
+  image: StaticImageData
+}
+
+const NFTs: NFT[] = [
+  {
+    id: 0,
+    title: 'CryptoPunk #1',
+    price: 10000,
+    image: Punk1Img,
+  },
+  {
+    id: 1,
+    title: 'CryptoPunk #2',
+    price: 2000,
+    image: Punk2Img,
+  },
+  {
+    id: 2,
+    title: 'CryptoPunk #1',
+    price: 300,
+    image: Punk3Img,
+  },
+  {
+    id: 3,
+    title: 'CryptoPunk #4',
+    price: 4,
+    image: Punk4Img,
+  },
+]
 
 export default function Home() {
   return (
@@ -27,9 +64,9 @@ export default function Home() {
         , pay later!
       </p>
 
-      <div className="mt-6 flex  flex-wrap items-center justify-around space-x-1 sm:w-full">
-        {NFTs.map((nft, index) => (
-          <Card {...nft} key={index} />
+      <div className="mt-6 flex  flex-wrap items-center justify-around space-x-2 sm:w-full">
+        {NFTs.map((nft) => (
+          <Card {...nft} key={nft.id} />
         ))}
       </div>
     </>
